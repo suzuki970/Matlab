@@ -1,11 +1,10 @@
 
---------------description----------------------
+############ description ############
 
---まばたきの補間用プログラム
-
+---------まばたきの補間用プログラム--------------
 script for interpolation of eye blinks
 
-example )
+example)
 
 pupil_data = pupil_data;
 
@@ -17,9 +16,10 @@ mothod = 'pchip';
 interpolated_pupil_data = zeroInterp( y, interval, mothod);
 
 
---瞳孔前処理用プログラム
-
+---------瞳孔前処理用プログラム---------
 script for pre-processing of pupil changes
+
+example)
 
 pupil_data = pupil_data;
 
