@@ -35,4 +35,4 @@ windowL = 10; % window for smoothing
 
 [start_time end_time] = [-0.2 10]; % time period of onset and offset
 
-[pupil_data rejctNum] =  pre_processing(pupil_data, fs, windowL, threshold,[start_time end_time])
+[pupil_data rejctNum] =  pre_processing(pupil_data, fs, threshold, windowL, [start_time end_time])
