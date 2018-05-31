@@ -9,7 +9,7 @@ for trials = 1:size(pupilData,1)
         
         %% return if 0 includes in the beginning or ending array
         if zeroInd(1,1) < interval || zeroInd(1,end) > size(pupilData(trials,:),2) - interval
-            return;
+%             return;
         else
             
             y = pupilData(trials,:);
@@ -39,7 +39,7 @@ for trials = 1:size(pupilData,1)
                 while (y(datOfblinkCood(i,1)) - y(datOfblinkCood(i,1)-1)) <= 0
                     datOfblinkCood(i,1) = datOfblinkCood(i,1)-1;
                     if datOfblinkCood(i,1) == 0
-                        return;
+                        break;
                     end
                 end
                 
@@ -47,7 +47,7 @@ for trials = 1:size(pupilData,1)
                 while (y(datOfblinkCood(i,2)) - y(datOfblinkCood(i,2)+1)) <= 0
                     datOfblinkCood(i,2) = datOfblinkCood(i,2)+1;
                     if datOfblinkCood(i,2) == size(y,2)
-                        return;
+                        break;
                     end
                 end
             end
