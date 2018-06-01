@@ -23,14 +23,16 @@ example)
 
 pupil_data = pupil_data;
 
-interval = 10;
+interval = 10; % window for detecting eyeblinks
 
-mothod = 'pchip';
+mothod = 'pchip'; % mothod for interpolation
 
-fs = sampling frequency, threshold;
+fs = 250 % sampling frequency
 
-windowL = window for smoothing;
+threshold = 0.1; % threshold to reject eyeblink by velocity 
 
-time period of onset and offset = [start_time end_time];
+windowL = 10; % window for smoothing
 
-[pupil_data rejctNum] =  pre_processing(pupil_data, fs, windowL, )
+[start_time end_time] = [-0.2 10]; % time period of onset and offset
+
+[pupil_data rejctNum] =  pre_processing(pupil_data, fs, threshold, windowL, [start_time end_time])
