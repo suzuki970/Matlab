@@ -38,7 +38,7 @@ for trials = 1:size(pupilData,1)
                 % for onset
                 while (y(datOfblinkCood(i,1)) - y(datOfblinkCood(i,1)-1)) <= 0
                     datOfblinkCood(i,1) = datOfblinkCood(i,1)-1;
-                    if datOfblinkCood(i,1) == 0
+                    if datOfblinkCood(i,1) == 1
                         break;
                     end
                 end
