@@ -11,8 +11,7 @@ for trials = 1:size(pupilData,1)
         if zeroInd(1,1) < interval || zeroInd(1,end) > size(pupilData(trials,:),2) - interval
 %             return;
         else
-            
-            y = pupilData(trials,:);
+             y = pupilData(trials,:);
             % define the onset and offset of the eye blinks
             diffOnOff = diff(zeroInd);
             diffOnOff=[inf diffOnOff inf];
