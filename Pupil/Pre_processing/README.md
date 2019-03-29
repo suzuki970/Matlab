@@ -1,8 +1,8 @@
 
 ############ description ############
 
----------まばたきの補間用プログラム--------------
---------- script for interpolation of eye blinks --------------
+---------まばたきの補間用プログラム(script for interpolation of eye blinks)--------------
+
 
 pupil_data is N(trial) by time length.
 
@@ -14,9 +14,8 @@ mothod = 'pchip'; % Piecewise Cubic Hermite Interpolating Polynomial : pchip has
 interpolated_pupil_data = zeroInterp( pupil_data, interval, mothod);
 
 
----------瞳孔前処理用プログラム---------
+---------瞳孔前処理用プログラム(script for pre-processing of pupil changes)---------
 
---------- script for pre-processing of pupil changes ---------
 
 example)
 
