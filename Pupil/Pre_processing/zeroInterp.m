@@ -4,9 +4,9 @@ for trials = 1:size(pupilData,1)
     
     zeroInd = find(pupilData(trials,:) == 0);
     
-    if length(zeroInd) > size(pupilData,2)/2
-        continue;
-    end
+%     if length(zeroInd) > size(pupilData,2)/2
+%         continue;
+%     end
    %     peakInd = find(gradient(pupilData(trials,:)) > 50);
     %
     %     zeroInd = unique([zeroInd peakInd]);

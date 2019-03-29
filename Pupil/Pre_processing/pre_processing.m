@@ -4,7 +4,7 @@ function [ y rejctNum] = pre_processing( y,fs, thres, windowL, timeLen, method )
 
 %% filtering
 ave = mean(y,2);
-y = y - repmat(ave,1,size(y,2));
+% y = y - repmat(ave,1,size(y,2));
 y = band_filter(y',fs,[0.001 35]);
 % y = band_filter(y',fs,[0.01 35]);
 % y = band_filter(y',fs,[0.1 35]);
@@ -34,17 +34,23 @@ for j = 1:size(y,1)
     end
 end
 
+% for j = 1:size(y,1)
+%     if ~isempty( find(abs(y(j,baselineData(1):end)) > 0.4))
+%         rejctNum = [rejctNum;j];
+%     end
+% end
+
 for j = 1:size(y,1)
     if sum(isnan(y(j,:))) > 0
         rejctNum = [rejctNum;j];
     end
 end
 
-% for j = 1:size(y,1)
-%     if ~isempty( find(abs(y(j,baselineData(1):end)) > 1))
-%         rejctNum = [rejctNum;j];
-%     end
-% end
+for j = 1:size(y,1)
+    if numel(find(y(j,:) == 0)) > size(y,2)/2
+        rejctNum = [rejctNum;j];
+    end
+end
 
 rejctNum = unique(rejctNum);
 

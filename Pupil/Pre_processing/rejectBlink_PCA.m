@@ -30,7 +30,7 @@ axis equal;
 box on;
 
 %% caluclation Euclidean distance from the center of whole value
-rejctNum = find(abs(score(:,1)) > (stdX*2));
+rejctNum = find(abs(score(:,1)) > (stdX*3));
 rejctNum = [rejctNum; find(abs(score(:,2)) > (stdY*2))];
 rejctNum = unique(rejctNum);
 
