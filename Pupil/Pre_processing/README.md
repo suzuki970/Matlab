@@ -1,5 +1,5 @@
 
-# description
+# 瞳孔解析のためのプログラム(Eye tracking data analysis)
 
 ### まばたきの補間用プログラム(script for interpolation of eye blinks)
 
