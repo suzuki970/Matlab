@@ -1,5 +1,16 @@
-function [TrialRawData] = txt2mat(rootFolder, NAME_EPOCH)
-% rootFolder = './results/';
+
+% close all;
+% clear all;
+% 
+% %% trigger name
+% NAME_EPOCH = {
+%     'fixation.jpg';
+%     %     'beforeOnset.jpg';
+%     %     'stimOnset.jpg';
+%     'interStim.jpg';
+%     };
+
+rootFolder = './results/';
 
 folderList = dir(rootFolder);
 folderList = folderList(~ismember({folderList.name}, {'.', '..','.DS_Store'}));
