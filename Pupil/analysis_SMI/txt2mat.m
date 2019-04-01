@@ -5,8 +5,8 @@ clear all;
 %% trigger name
 NAME_EPOCH = {
     'fixation.jpg';
-%     'beforeOnset.jpg';
-%     'stimOnset.jpg';
+    %     'beforeOnset.jpg';
+    %     'stimOnset.jpg';
     'interStim.jpg';
     };
 
@@ -30,11 +30,12 @@ for iSub = 1:size(folderlist,1)
         '%s %s %s %s %s %s %s %s %s %s'...
         '%s %s %s %s %s %s %s %s %s %s'...
         '%s %s %s %s %s %s %s %s %s %s']);
-      numOfTrials = size( strmatch(NAME_EPOCH{1},dat{1,6}),1);
+    numOfTrials = size( strmatch(NAME_EPOCH{1},dat{1,6}),1);
     
-    %% 
+    %%
     for i = 1:size(NAME_EPOCH,1)
         t = strmatch(NAME_EPOCH{i},dat{1,6});
+        t = t(1:numOfTrials);
         ind(i,:) = t(end-numOfTrials+1:end);
     end
     
