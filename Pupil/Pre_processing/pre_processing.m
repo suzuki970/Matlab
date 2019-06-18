@@ -5,9 +5,9 @@ function [ y rejctNum] = pre_processing( y,fs, thres, windowL, timeLen, method )
 %% filtering
 ave = mean(y,2);
 % y = y - repmat(ave,1,size(y,2));
-y = band_filter(y',fs,[0.001 35]);
+% y = band_filter(y',fs,[0.001 35]);
 % y = band_filter(y',fs,[0.01 35]);
-% y = band_filter(y',fs,[0.1 35]);
+y = band_filter(y',fs,[0.1 35]);
 y = filter(ones(1,windowL)/windowL, 1, y')';
 y = y(:,windowL+1:end);
 y = y + repmat(ave,1,size(y,2));
