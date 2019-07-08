@@ -3,11 +3,11 @@ function [ pupilData ] = zeroInterp( pupilData, interval, methods)
 for trials = 1:size(pupilData,1)
     
     zeroInd = find(pupilData(trials,:) == 0);
-    
-%     if length(zeroInd) > size(pupilData,2)/2
-%         continue;
-%     end
-   %     peakInd = find(gradient(pupilData(trials,:)) > 50);
+    %     gradInd = find(abs(gradient(pupilData(trials,:))) > 30);
+    if length(zeroInd) > size(pupilData,2)/2
+        continue;
+    end
+    %     peakInd = find(gradient(pupilData(trials,:)) > 50);
     %
     %     zeroInd = unique([zeroInd peakInd]);
     
@@ -30,27 +30,30 @@ for trials = 1:size(pupilData,1)
             count = size(zeroInd,2);
             rejInd = [];
             while endFlag
-               if count == 1
+                if count == 1
                     rejInd = [rejInd;count];
                     break;
                 end
-            if zeroInd(1,count) == zeroInd(1,count-1)+1
+                if zeroInd(1,count) == zeroInd(1,count-1)+1
                     rejInd = [rejInd;count];
                     count = count-1;
                 else
                     rejInd = [rejInd;count];
                     endFlag = false;
                 end
-                   
+                
             end
             zeroInd(:,rejInd) = [];
             %             zeroInd(:,end-interval:end) = [];
         end
     end
     
+    
     if isempty(zeroInd)
         continue;
     end
+    
+    %
     %% return if 0 includes in the beginning or ending array
     if zeroInd(1,1) < interval
         %             || zeroInd(1,end) > size(pupilData(trials,:),2) - interval

@@ -1,6 +1,9 @@
 function [ y rejctNum] = pre_processing( y,fs, thres, windowL, timeLen, method, filt )
 
+%% ----------------------------------------------------
+
 %% filtering
+% y = band_filter(y',fs,[0.001 35]);
 if ~isempty(filt)
     ave = mean(y,2);
     y = y - repmat(ave,1,size(y,2));
@@ -35,14 +38,18 @@ for j = 1:size(y,1)
     end
 end
 
-%% reject trials when the NAN includes
+% for j = 1:size(y,1)
+%     if ~isempty( find(abs(y(j,baselineData(1):end)) > 0.4))
+%         rejctNum = [rejctNum;j];
+%     end
+% end
+
 for j = 1:size(y,1)
     if sum(isnan(y(j,:))) > 0
         rejctNum = [rejctNum;j];
     end
 end
 
-%% reject trials when number of 0 > 50%
 for j = 1:size(y,1)
     if numel(find(y(j,:) == 0)) > size(y,2)/2
         rejctNum = [rejctNum;j];
@@ -50,6 +57,10 @@ for j = 1:size(y,1)
 end
 
 rejctNum = unique(rejctNum);
+
+
+
+%% ----------------------------------------------------
 
 end
 

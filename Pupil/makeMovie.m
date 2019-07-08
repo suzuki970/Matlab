@@ -14,8 +14,12 @@ writerObj.FrameRate = frame_rate;
 writerObj.Quality = 100;
 open(writerObj);
 
-for i_frame = 1:192
-img0 = double(imread(strcat('.\heatMap\heatMap',num2str(i_frame),'.png'),'png'))./255;
+rootFolder = '/Users/yuta/Dropbox/MATLAB/P05_GlareOscillation/MakeGlareMovie_gradation/';
+fileList = dir([rootFolder '*.BMP']);
+fileList = fileList(~ismember({fileList.name}, {'.', '..','.DS_Store'}));
+
+for i_frame = 1:size(fileList,1)
+img0 = double(imread([fileList(i_frame).folder '/' fileList(i_frame).name],'BMP'))./255;
 imshow(img0);
     frame = getframe;
     writeVideo(writerObj,frame);            
