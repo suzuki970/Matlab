@@ -3,13 +3,13 @@ function [TrialRawData] = extractDataFromTXT(i,order,range,dat,TrialRawData)
 t0 = dat{1,1}(range); % time stump
 
 %% left eye
-t1(:,1) = dat{1,4}(range); % gaze x
-t2(:,1) = dat{1,5}(range); % gaze y
-t3(:,1) = dat{1,10}(range);% pupil diameter
+t1(:,1) = dat{1,10}(range); % gaze x
+t2(:,1) = dat{1,11}(range); % gaze y
+t3(:,1) = dat{1,6}(range);% pupil diameter
 %% right eye
-t1(:,2) = dat{1,6}(range);
-t2(:,2) = dat{1,7}(range);
-t3(:,2) = dat{1,13}(range);
+t1(:,2) = dat{1,12}(range);
+t2(:,2) = dat{1,13}(range);
+t3(:,2) = dat{1,9}(range);
 
 count=1;
 for j = 1:size(t1,1)

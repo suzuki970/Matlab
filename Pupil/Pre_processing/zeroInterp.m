@@ -125,12 +125,19 @@ for trials = 1:size(pupilData,1)
     for i = 1:size(datOfblinkCood,1)
         onsetArray = datOfblinkCood(i,1);
         offsetArray = datOfblinkCood(i,2);
+        if onsetArray == offsetArray
+          numX = [onsetArray-1 offsetArray+1];
+        numY = pupilData(trials,numX);
         
+        xx = onsetArray:offsetArray;
+        yy = interp1(numX,numY,xx,methods);
+        else
         numX = [onsetArray offsetArray];
         numY = pupilData(trials,numX);
         
         xx = onsetArray:offsetArray;
         yy = interp1(numX,numY,xx,methods);
+        end
         
         pupilData(trials,xx) = yy;
     end
