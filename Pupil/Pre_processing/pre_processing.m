@@ -21,7 +21,7 @@ x = [startTime:(endTime-startTime)/(size(y,2)-1):endTime];
 baselineData = [knnsearch(x',-0.2) knnsearch(x',0)];
 
 if method == 1
-    y = (y - repmat(mean(y(:,baselineData(1):baselineData(2)),2),1,size(y,2))) ./ repmat(std(y(:,baselineData(1):baselineData(2))')',1,size(y,2));
+%     y = (y - repmat(mean(y(:,baselineData(1):baselineData(2)),2),1,size(y,2))) ./ repmat(std(y(:,baselineData(1):baselineData(2))')',1,size(y,2));
     y = (y - repmat(mean(y(:,baselineData(1):baselineData(2)),2),1,size(y,2)));
 else
     y = y ./ repmat(mean(y(:,baselineData(1):baselineData(2)),2),1,size(y,2));

@@ -16,7 +16,7 @@ subplot(1,3,1);hold on;
 plot(x, allPupilData{1,1}.PLR');
 title('raw data')
 xlabel('time[s]')
-ylabel('pupil diameter[mm]')
+ylabel('pupil diameter [mm]')
 set( gca, 'FontName','Times','FontSize',16 );
 %% blink interpolation
 y = allPupilData{1,1}.PLR;
@@ -26,7 +26,7 @@ subplot(1,3,2);hold on;
 plot(x, y');
 title('interpolated data')
 xlabel('time[s]')
-ylabel('pupil diameter[mm]')
+ylabel('pupil diameter [mm]')
 set( gca, 'FontName','Times','FontSize',16 );
 
 %% pre-processing
@@ -37,5 +37,5 @@ x = [startTime:(endTime-startTime)/(size(y,2)-1):endTime];
 plot(x, y');
 title('baseline corrected data')
 xlabel('time[s]')
-ylabel('pupil changes from baseline [mm]')
-set( gca, 'FontName','Times','FontSize',16 );
+ylabel('baseline corrected pupil changes [mm]')
+set( gca, 'FontName','Times','FontSize',18 );
