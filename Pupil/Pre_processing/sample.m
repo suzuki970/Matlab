@@ -30,7 +30,7 @@ ylabel('pupil diameter[mm]')
     
 %% pre-processing
 % pre_processing(pupil_data, sampling frequency, threshold, window for smoothing, time period of onset and offset)      
-[y rejctNum] = pre_processing(y,250, 0.05, 10,[startTime endTime],1);
+[y rejctNum] = pre_processing(y,250, 0.05, 10,[startTime endTime],1,[0.2 35]);
        subplot(1,3,3);hold on;
 x = [startTime:(endTime-startTime)/(size(y,2)-1):endTime];
 plot(x, y');
