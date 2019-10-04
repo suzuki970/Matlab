@@ -15,7 +15,7 @@ mothod = 'pchip';  % Piecewise Cubic Hermite Interpolating Polynomial : pchip ha
 interpolated_pupil_data = zeroInterp( pupil_data, interval, mothod);
 ```
 
-![figure](./fig_sample.eps)
+![figure](./fig_sample.png)
 
 ### 瞳孔前処理用プログラム(script for pre-processing of pupil changes)
 
