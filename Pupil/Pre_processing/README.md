@@ -11,7 +11,7 @@ example)
 
 ```
 interval = 10;
-mothod = 'pchip';            % Piecewise Cubic Hermite Interpolating Polynomial : pchip has no overshoots and less oscillation if the data is not smooth.
+mothod = 'pchip';  % Piecewise Cubic Hermite Interpolating Polynomial : pchip has no overshoots and less oscillation if the data is not smooth.
 interpolated_pupil_data = zeroInterp( pupil_data, interval, mothod);
 ```
 
