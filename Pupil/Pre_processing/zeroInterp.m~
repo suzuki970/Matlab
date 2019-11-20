@@ -11,12 +11,7 @@ for trials = 1:size(pupilData,1)
     if length(zeroInd) > 0
         
         if zeroInd(1,1) == 1 && length(zeroInd) == 1
-           pupilData(trials,1) = pupilData(trials,2);
-            continue;
-        end
-        
-        if zeroInd(1,1) == size(pupilData,2) && length(zeroInd) == 1
-           pupilData(trials,end) = pupilData(trials,end-1);
+           pupilData(trials,1) = ypupilData(trials,1)y;
             continue;
         end
         

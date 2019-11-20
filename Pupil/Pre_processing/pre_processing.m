@@ -32,7 +32,7 @@ end
 rejctNum = [];
 FX = gradient(y);
 for j = 1:size(y,1)
-    if ~isempty( find(abs(FX(j,baselineData(1):end-5)) > thres))
+    if ~isempty( find(abs(FX(j,baselineData(1):end)) > thres))
         rejctNum = [rejctNum;j];
     end
 end
