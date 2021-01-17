@@ -1,3 +1,5 @@
+% Copyright (c) 2021 Yuta Suzuki
+% This software is released under the MIT License, see LICENSE.
 
 function pixel_num = pixel_size(dotpitch, visual_angle , visual_range)
 
@@ -11,5 +13,3 @@ a = a * 10;  % cm to mm
 disp([num2str(a),'mm'])
 pixel_num = a / dotpitch;
 end
-
-% atan(3*0.276/10/60)* (180/pi)

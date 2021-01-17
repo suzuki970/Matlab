@@ -1,11 +1,14 @@
 %%%%%%%%%% description %%%%%%%%%%%%%%
 % Created on Tue Mar 31 2020
 % Place : Japan,
-% Author : Yuta Suzuki©
+% Author : Yuta Suzuki
 
 % Eye-tracker     : EyeLink
 % Display         : Display++
 % Visual distance : 80 cm
+
+% Copyright (c) 2021 Yuta Suzuki
+% This software is released under the MIT License, see LICENSE.
 %% -----------------------------------
 
 clear all;

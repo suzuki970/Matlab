@@ -1,3 +1,6 @@
+% Copyright (c) 2021 Yuta Suzuki
+% This software is released under the MIT License, see LICENSE.
+
 function showMessage(cfg,myText1,myText2,screenNumber,win)
 
 TextColor=[0 0 0];
