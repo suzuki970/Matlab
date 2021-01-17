@@ -3,26 +3,32 @@ function [ pupilData ] = zeroInterp( pupilData, interval, methods)
 for trials = 1:size(pupilData,1)
     
     zeroInd = find(pupilData(trials,:) == 0);
-   if length(zeroInd) > size(pupilData,2)/2
+    if length(zeroInd) > size(pupilData,2)/2
         continue;
-   end
-   
-   % if there are 0 value in the obtained data
+    end
+    
+    % if there are 0 value in the obtained data
     if length(zeroInd) > 0
         
         if zeroInd(1,1) == 1 && length(zeroInd) == 1
-           pupilData(trials,1) = ypupilData(trials,1)y;
+            pupilData(trials,1) = pupilData(trials,2);
             continue;
         end
         
-        if zeroInd(1,end) == size(pupilData(trials,:),2) && length(zeroInd) == 1
+        if zeroInd(1,1) == size(pupilData,2) && length(zeroInd) == 1
+            pupilData(trials,end) = pupilData(trials,end-1);
             continue;
         end
         
-        if zeroInd(1,end) == size(pupilData(trials,:),2) && zeroInd(1,end) ~= zeroInd(1,end-1)+1
+        if zeroInd(1,end) == size(pupilData,2) && length(zeroInd) == 1
+            continue;
+        end
+        
+        if zeroInd(1,end) == size(pupilData,2) && zeroInd(1,end) ~= zeroInd(1,end-1)+1
             pupilData(trials,end) = pupilData(trials,end-1);
             zeroInd(:,end) = [];
-        elseif zeroInd(1,end) > size(pupilData(trials,:),2) - interval
+            
+        elseif zeroInd(1,end) > size(pupilData,2) - interval
             endFlag = true;
             count = size(zeroInd,2);
             rejInd = [];
@@ -44,7 +50,6 @@ for trials = 1:size(pupilData,1)
             %             zeroInd(:,end-interval:end) = [];
         end
     end
-    
     
     if isempty(zeroInd)
         continue;
@@ -123,16 +128,22 @@ for trials = 1:size(pupilData,1)
         onsetArray = datOfblinkCood(i,1);
         offsetArray = datOfblinkCood(i,2);
         if onsetArray == offsetArray
-            numX = [onsetArray-1 offsetArray+1];
+            %             numX = [onsetArray-1 offsetArray+1];
+            %             numY = pupilData(trials,numX);
+            %
+            %             xx = onsetArray:offsetArray;
+            %             yy = interp1(numX,numY,xx,methods);
+            numX = [1:(onsetArray-1) (offsetArray+1):size(y,2)];
             numY = pupilData(trials,numX);
-            
-            xx = onsetArray:offsetArray;
+            xx = 1:size(y,2);
             yy = interp1(numX,numY,xx,methods);
         else
-            numX = [onsetArray offsetArray];
+            %                         numX = [onsetArray offsetArray];
+            %                         numY = pupilData(trials,numX);
+            %                        xx = onsetArray:offsetArray;
+            numX = [1:onsetArray offsetArray:size(y,2)];
             numY = pupilData(trials,numX);
-            
-            xx = onsetArray:offsetArray;
+            xx = 1:size(y,2);
             yy = interp1(numX,numY,xx,methods);
         end
         
