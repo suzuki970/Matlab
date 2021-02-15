@@ -1,4 +1,10 @@
-function [glareColors,innerR] = makeGlareStim(space_xyYVal, ballNum,colors_xy,frameRate,freq1,minL,maxL)
+function funs = makeGlareStim
+  funs.makeGlare=@makeGlare;
+  funs.makeGlareStim2=@makeGlareStim2;
+  funs.makeGlare2=@makeGlare2;
+end
+
+function [glareColors,innerR] = makeGlare(space_xyYVal, ballNum,colors_xy,frameRate,freq1,minL,maxL)
 
 outerR = 1000;
 innerR = round( (pi*outerR) / ballNum);

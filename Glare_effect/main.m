@@ -43,8 +43,9 @@ for i = 1 : 7
     space_xyYVal{1,i}(3,:) = linspace(1,colors_xy(i,3),innerR);
 end
 
+makeGlareStim = makeGlareStim;
 for i = 1:size(rangeOfLum0,2)
-    [glareColors innerR] = makeGlareRGBvalue_gradation(space_xyYVal,ballNum,colors_xy,cfg.FRAME_RATE,cfg.FREQUENCY,rangeOfLum0(i),rangeOfLum1(i));
+    [glareColors innerR] = makeGlareStim.makeGlare(space_xyYVal,ballNum,colors_xy,cfg.FRAME_RATE,cfg.FREQUENCY,rangeOfLum0(i),rangeOfLum1(i));
     glareColors(:,[2 3 4 5 6 7])=[];
     allGlareColors(:,i)=glareColors;
 end
@@ -68,7 +69,7 @@ Screen('BlendFunction', win, GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 tmpColArray = [1:size(allGlareColors,1) (size(allGlareColors,1)-1):-1:1];
 for i = 1 : size(allGlareColors,2)
     for lumRoop = 1 : size(allGlareColors,1) * 2 -1
-        cercleData = makeGlare2(innerR, i, 2, allGlareColors(tmpColArray(lumRoop),:),cfg.BGCOLOR);
+        cercleData = makeGlareStim.makeGlare2(innerR, i, 2, allGlareColors(tmpColArray(lumRoop),:),cfg.BGCOLOR);
         
         if lumRoop > size(allGlareColors,1)
             for j = 1:3
